@@ -1,0 +1,3 @@
+module Filedots
+  # Your code goes here...
+end
