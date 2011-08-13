@@ -29,10 +29,12 @@ module Filedots
 
       def link(source, target)
         if File.exists?(target)
+          # TODO: This is not accuracy.
+          # Check the link, make some test cases....when I have more free time :)
           if File.identical?(source, target)
             say_status :identical, target
           else
-            link!(source, target) if yes?("Overwrite #{target}?")
+            link!(source, target) if yes?("Overwrite #{target}?", :red)
           end
         else
           link!(source, target)
@@ -40,13 +42,19 @@ module Filedots
       end
 
       def link!(source, target)
-        #TODO: Don't do this, refactoring with File.symlink
-        run "ln -sfn #{source} #{target}"
+        File.unlink(target) if File.exists?(target)
+        File.symlink(source, target)
+        say_status :symlink, "#{source} #{target}"
       end
 
       def unlink(target)
-        #TODO: Don't do this
-        run "rm #{target}"
+        # TODO: Alert if it's not symlink?
+        if File.exists?(target)
+          File.unlink(target)
+          say_status :unlink, target
+        else
+          say_status :nonexist, target
+        end
       end
     end
   end
