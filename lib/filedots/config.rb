@@ -8,12 +8,15 @@ module Filedots
     end
 
     def link(source, target=nil)
-      target ||= ".#{source}"
-      @links << [source, target]
-    end
+      if source.is_a?(Array)
+        source.each { |s| link(s) }
+        return
+      end
 
-    def links(*sources)
-      sources.each { |s| link(s) }
+      target ||= "#{ENV['HOME']}/.#{source}"
+      source = "#{Dir.pwd}/#{source}"
+
+      @links << [source, target]
     end
 
   end
