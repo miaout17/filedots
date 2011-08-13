@@ -15,6 +15,9 @@ module Filedots
     desc 'uninstall', 'Uninstall dotfiles'
     def uninstall
       return unless load_config
+      @config.links.each do |source, target|
+        unlink(target)
+      end
     end
 
     no_tasks do
@@ -37,12 +40,14 @@ module Filedots
       end
 
       def link!(source, target)
+        #TODO: Don't do this, refactoring with File.symlink
         run "ln -sfn #{source} #{target}"
       end
 
       def unlink(target)
+        #TODO: Don't do this
+        run "rm #{target}"
       end
-
     end
   end
 end
