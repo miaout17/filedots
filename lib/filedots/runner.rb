@@ -4,18 +4,18 @@ module Filedots
   class Runner < Thor
     desc 'install', 'Install dotfiles'
     def install
-      load_spec
+      load_config
     end
 
     desc 'uninstall', 'Uninstall dotfiles'
     def uninstall
-      load_spec
+      load_config
     end
 
     no_tasks do
-      def load_spec
-        @spec = Spec.new
-        Spec.instance_eval(File.read('filedots.rb'))
+      def load_config
+        @config = Spec.new
+        Config.instance_eval(File.read('filedots.rb'))
       end
     end
   end

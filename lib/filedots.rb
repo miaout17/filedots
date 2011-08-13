@@ -1,5 +1,3 @@
 require 'filedots/runner'
-require 'filedots/spec'
+require 'filedots/config'
 
-module Filedots
-end

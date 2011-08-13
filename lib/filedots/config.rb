@@ -1,5 +1,5 @@
 module Filedots
-  class Spec
+  class Config
 
     attr_accessor :links
 
