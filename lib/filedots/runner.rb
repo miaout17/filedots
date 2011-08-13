@@ -42,7 +42,9 @@ module Filedots
       end
 
       def link!(source, target)
-        File.unlink(target) if File.exists?(target)
+        # TODO: refactoring
+        # File.exists? = false and File.symlink? = true occurs when the linked file is lost
+        File.unlink(target) if File.exists?(target) || File.symlink?(target)
         File.symlink(source, target)
         say_status :symlink, "#{source} #{target}"
       end

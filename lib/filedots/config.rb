@@ -13,7 +13,8 @@ module Filedots
         return
       end
 
-      target ||= File.expand_path("~/.#{source}")
+      target ||= "~/.#{source}"
+      target = File.expand_path(target)
       source = File.expand_path("#{Dir.pwd}/#{source}")
 
       @links << [source, target]
