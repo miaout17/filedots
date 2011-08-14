@@ -1,6 +1,6 @@
 Before do
   @dirs ||= ['tmp/aruba/dotfiles']
-  @home_dir = File.expand_path File.join(current_dir, "../home")
+  @home_dir = File.expand_path File.join(current_dir, "..")
 
   @_origin_home = ENV["HOME"]
   ENV["HOME"] = @home_dir

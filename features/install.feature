@@ -12,5 +12,5 @@ Feature: Install dotfiles
       HelloWorld
       """
     When I run `filedots install`
-    Then the file "../home/.bashrc" should contain "HelloWorld"
+    Then the file "../.bashrc" should contain "HelloWorld"
 
