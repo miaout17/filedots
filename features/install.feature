@@ -2,9 +2,7 @@ Feature: Install dotfiles
   In order to install dotfiles
   I executed filedots install
 
-  @announce-stdout
-  @announce-stderr
-  Scenario: First time using house
+  Scenario: First time installation
     Given a file named ".filedots" with:
       """
       link "bashrc"

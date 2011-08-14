@@ -5,5 +5,4 @@ rvm:
   - rbx
   - ree
   - jruby
-  - 1.8.6
 
