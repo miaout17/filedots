@@ -2,15 +2,17 @@ Feature: Install dotfiles
   In order to install dotfiles
   I executed filedots install
 
+  @announce-stdout
+  @announce-stderr
   Scenario: First time using house
     Given a file named ".filedots" with:
       """
-      bashrc
+      link "bashrc"
       """
     And a file named "bashrc" with:
       """
       HelloWorld
       """
-    When I run `cat .filedots`
+    When I run `filedots install`
     Then the file "../home/.bashrc" should contain "HelloWorld"
 
