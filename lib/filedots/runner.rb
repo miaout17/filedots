@@ -12,8 +12,8 @@ module Filedots
       end
     end
 
-    desc 'uninstall', 'Uninstall dotfiles'
-    def uninstall
+    desc 'clean', 'Uninstall dotfiles'
+    def clean
       return unless load_config
       @config.links.each do |source, target|
         unlink(target)

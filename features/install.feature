@@ -1,6 +1,6 @@
 Feature: Install dotfiles
   In order to install dotfiles
-  I executed filedots install
+  I executed "filedots install"
 
   Scenario: First time installation
     Given a file named ".filedots" with:
