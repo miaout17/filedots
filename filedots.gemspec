@@ -20,4 +20,8 @@ Gem::Specification.new do |s|
   s.require_paths = ["lib"]
 
   s.add_dependency "thor", ">= 0.14.6"
+
+  s.add_development_dependency 'cucumber', '~> 1.0.2'
+  s.add_development_dependency 'aruba', '~> 0.4.6'
+  s.add_development_dependency 'rspec', '~> 2.6.0'
 end
